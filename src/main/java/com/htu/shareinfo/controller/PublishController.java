@@ -1,11 +1,13 @@
 package com.htu.shareinfo.controller;
 
 import com.htu.shareinfo.entity.Article;
+import com.htu.shareinfo.entity.User;
 import com.htu.shareinfo.service.PublishService;
 import com.htu.shareinfo.util.ResponseMapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,15 +31,25 @@ public class PublishController {
         return mav;
     }
 
+    @ResponseBody
     @RequestMapping("/publish")
     public Map<String,Object> publish(Article article, HttpServletRequest request ){
-        Integer id =(Integer) request.getSession().getAttribute("id");
-        if (id==null){
+        User user = (User) request.getSession().getAttribute("userExist");
+        if (user==null){
             return ResponseMapUtil.fail("请登录");
+        }
+        if (article.getTitle()==null||article.getTitle().equals("")){
+            return ResponseMapUtil.fail("标题不能为空");
+        }
+        if (article.getContent()==null||article.getContent().equals("")){
+            return ResponseMapUtil.fail("内容不能为空");
+        }
+        if (article.getLabel()==null||article.getLabel().equals("")){
+            return ResponseMapUtil.fail("标签不能为空");
         }
         Date date = new Date();
         article.setCreateTime(date);
-        article.setUid(id);
+        article.setUid(user.getUid());
         publishService.insertArticle(article);
         return ResponseMapUtil.success("添加成功");
     }

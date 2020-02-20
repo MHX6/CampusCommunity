@@ -35,7 +35,7 @@ public class LoginController {
         //System.out.println(userExist);
         session.setAttribute("userExist",userExist);
         if (userExist != null) {
-            return "redirect:index";
+            return "redirect:/";
         }
         return "loginPage";
     }

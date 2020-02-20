@@ -6,18 +6,18 @@ package com.htu.shareinfo.entity;
  **/
 public class User {
 
-    private String uid;
+    private long uid;
     private String userName;
     private String studentId;
     private String avatarUrl;
     private String password;
     private String phoneNumber;
 
-    public String getUid() {
+    public long getUid() {
         return uid;
     }
 
-    public void setUid(String uid) {
+    public void setUid(long uid) {
         this.uid = uid;
     }
 
