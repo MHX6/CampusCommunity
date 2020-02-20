@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htu.shareinfo.mapper.PublishMapper">
+
+
+    <insert id="insertArticle" parameterType="Article">
+        insert into t_article (title, content, label, uid,createTime) values (#{title},#{content},#{label},#{uid},#{createTime})
+    </insert>
+
+
+
+
+
+
+
+</mapper>
