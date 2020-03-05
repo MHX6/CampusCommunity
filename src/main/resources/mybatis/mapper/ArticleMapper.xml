@@ -9,18 +9,7 @@
 
 
     <select id="selectAllArticle" resultType="Article">
-        <include refid="articleBase"/>
-        <where>
-            <if test="aid != null  and aid != ''">and aid=#{aid}</if>
-            <if test="title != null  and title != ''">and title=#{title}</if>
-            <if test="content != null  and content != ''">and content=#{content}</if>
-            <if test="label != null  and label != ''">and label=#{label}</if>
-            <if test="createTime != null  and createTime != ''">and createTime=#{createTime}</if>
-            <if test="viewCount != null  and viewCount != ''">and viewCount=#{viewCount}</if>
-            <if test="commentCount != null  and commentCount != ''">and commentCount=#{commentCount}</if>
-            <if test="likeCount != null  and likeCount != ''">and likeCount=#{likeCount}</if>
-            <if test="uid != null  and uid != ''">and uid=#{uid}</if>
-        </where>
+        <include refid="articleBase"/> limit #{offset},#{size}
     </select>
 
     <select id="totalCount" resultType="integer">
