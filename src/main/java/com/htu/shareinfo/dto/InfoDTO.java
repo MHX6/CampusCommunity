@@ -1,15 +1,13 @@
 package com.htu.shareinfo.dto;
 
-import com.htu.shareinfo.entity.Article;
+import com.htu.shareinfo.entity.Information;
 import com.htu.shareinfo.entity.User;
-
-import java.util.Date;
 
 /**
  * @author mhx
  * @date 2020-02-18 11:26
  **/
-public class ArticleDTO extends Article {
+public class InfoDTO extends Information {
 
     private User user;
 

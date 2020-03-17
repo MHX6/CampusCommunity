@@ -1,6 +1,6 @@
 package com.htu.shareinfo.service;
 
-import com.htu.shareinfo.entity.Article;
+import com.htu.shareinfo.entity.Information;
 
 /**
  * @author mhx
@@ -8,5 +8,7 @@ import com.htu.shareinfo.entity.Article;
  **/
 public interface PublishService {
 
-    void insertArticle(Article article);
+    void publishInfo(Information article);
+
+    void updateInfo(Information information);
 }

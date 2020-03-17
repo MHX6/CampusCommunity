@@ -11,7 +11,7 @@ import java.util.List;
  **/
 @Data
 public class PaginationDTO {
-    private List<ArticleDTO> articleDTOS;
+    private List<InfoDTO> infoDTOS;
     private boolean showPrevious;
     private boolean showFirstPage;
     private boolean showNext;

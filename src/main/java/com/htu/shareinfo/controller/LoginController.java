@@ -2,14 +2,12 @@ package com.htu.shareinfo.controller;
 
 import com.htu.shareinfo.entity.User;
 import com.htu.shareinfo.service.UserService;
-import com.htu.shareinfo.util.ResponseMapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-import java.util.Map;
 
 /**
  * @author mhx
@@ -24,7 +22,7 @@ public class LoginController {
     @RequestMapping("/loginPage")
     public ModelAndView login(){
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/loginPage");
+        mav.setViewName("loginPage");
         return mav;
     }
 
@@ -41,11 +39,9 @@ public class LoginController {
     }
 
     @RequestMapping("/signout")
-    public Map<String,Object> signout(HttpSession session){
-      ModelAndView mav = new ModelAndView();
-      mav.setViewName("/loginPage");
+    public String signout(HttpSession session){
       session.invalidate();
-      return ResponseMapUtil.success("退出成功");
+      return "redirect:/";
     }
 
 }

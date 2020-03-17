@@ -1,6 +1,6 @@
 package com.htu.shareinfo.service.serviceImpl;
 
-import com.htu.shareinfo.entity.Article;
+import com.htu.shareinfo.entity.Information;
 import com.htu.shareinfo.mapper.PublishMapper;
 import com.htu.shareinfo.service.PublishService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,12 @@ public class PublishServiceImpl implements PublishService {
     private PublishMapper publishMapper;
 
     @Override
-    public void insertArticle(Article article) {
-        publishMapper.insertArticle(article);
+    public void publishInfo(Information info) {
+        publishMapper.insertInfo(info);
+    }
+
+    @Override
+    public void updateInfo(Information information) {
+        publishMapper.updateInfo(information);
     }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htu.shareinfo.mapper.InfoMapper">
+
+
+    <sql id="infoBase">
+        select id, title, content, label, createTime, viewCount, commentCount, likeCount, uid from t_article
+    </sql>
+
+
+    <select id="selectAllInfo" resultType="Information">
+        <include refid="infoBase"/>
+        where 1=1
+        <if test="uid != null  and uid != ''"> and uid = #{uid}</if>
+        limit #{offset},#{size}
+    </select>
+
+    <select id="totalCount" resultType="integer">
+        select count(1) from t_article
+        where 1=1
+        <if test="uid != null  and uid != ''"> and uid = #{uid}</if>
+    </select>
+
+    <select id="selectByid" resultType="Information">
+        <include refid="infoBase"/> where id = #{id}
+    </select>
+
+</mapper>

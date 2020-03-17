@@ -3,11 +3,13 @@
 <mapper namespace="com.htu.shareinfo.mapper.PublishMapper">
 
 
-    <insert id="insertArticle" parameterType="Article">
+    <insert id="insertInfo" parameterType="Information">
         insert into t_article (title, content, label, uid,createTime) values (#{title},#{content},#{label},#{uid},#{createTime})
     </insert>
 
-
+    <update id="updateInfo" parameterType="Information">
+        update t_article set title=#{title},content=#{content},label=#{label},createTime=#{createTime} where id=#{id}
+    </update>
 
 
 

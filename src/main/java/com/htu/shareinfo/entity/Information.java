@@ -3,9 +3,9 @@ package com.htu.shareinfo.entity;
 
 import java.util.Date;
 
-public class Article {
+public class Information {
 
-  private long aid;
+  private long id;
   private String title;
   private String content;
   private String label;
@@ -15,12 +15,12 @@ public class Article {
   private String likeCount;
   private long uid;
 
-  public long getAid() {
-    return aid;
+  public long getId() {
+    return id;
   }
 
-  public void setAid(long aid) {
-    this.aid = aid;
+  public void setId(long id) {
+    this.id = id;
   }
 
   public String getTitle() {

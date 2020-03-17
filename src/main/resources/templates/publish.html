@@ -21,6 +21,7 @@
             <hr>
 
             <form>
+                <input type="hidden" name="id" id="id" th:value="${id}">
                 <div class="form-group">
                     <label for="title">问题标题（简单扼要）:</label>
                     <input type="text" class="form-control" th:value="${title}" id="title" name="title" placeholder="问题标题……" autocomplete="off">
@@ -31,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label for="label">添加标签:</label>
-                    <input type="text" class="form-control" id="label" name="label" th:text="${label}" placeholder="输入标签，以，分隔">
+                    <input type="text" class="form-control" id="label" name="label" th:value="${label}" placeholder="输入标签，以，分隔">
                 </div>
                 <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10"></div>
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
@@ -39,7 +40,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-lg-3 col-md-12 col-sm=12 col-xs=12">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <h3>问题发起指南</h3>
             • 问题标题: 请用精简的语言描述您发布的问题，不超过25字 <br>
             • 问题补充: 详细补充您的问题内容，并确保问题描述清晰直观, 并提供一些相关的资料<br>
@@ -59,6 +60,7 @@
             url: "/publish",
             dataType: "json",
             data: {
+                id: $('#id').val(),
                 title: $('#title').val(),
                 content: $('#content').val(),
                 label: $('#label').val(),
