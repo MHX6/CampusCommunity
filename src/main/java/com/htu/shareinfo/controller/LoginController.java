@@ -22,13 +22,12 @@ public class LoginController {
     @RequestMapping("/loginPage")
     public ModelAndView login(){
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("loginPage");
+        mav.setViewName("/loginPage");
         return mav;
     }
 
     @RequestMapping("/login")
     public String login(User user, HttpSession session){
-        ModelAndView mav = new ModelAndView();
         User userExist = userService.login(user);
         //System.out.println(userExist);
         session.setAttribute("userExist",userExist);

@@ -21,7 +21,9 @@
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading" th:text="${infoDTO.title}"></h4>
+                    <h4 class="media-heading">
+                        <a th:href="@{'/info/'+${infoDTO.id}}" th:text="${infoDTO.title}"></a>
+                    </h4>
                     <span th:text="${infoDTO.content}"></span><br>
                     <span class="text-desc">[[${infoDTO.commentCount}==null?'0':${infoDTO.commentCount}]]个回复·[[${infoDTO.viewCount}==null?'0':${infoDTO.viewCount}]]次浏览·<span
                             th:text="${#dates.format(infoDTO.createTime,'yyyy-MM-dd')}"></span></span>

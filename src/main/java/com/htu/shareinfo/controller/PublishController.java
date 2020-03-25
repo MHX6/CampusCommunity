@@ -38,7 +38,7 @@ public class PublishController {
     }
 
     @RequestMapping("/publish/{id}")
-    public ModelAndView esitPage(@PathVariable("id")Long id, Model model){
+    public ModelAndView publish(@PathVariable("id")Long id, Model model){
         ModelAndView mav = new ModelAndView();
         Information information = infoService.selectByid(id);
         model.addAttribute("id",id);
